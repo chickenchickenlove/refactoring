@@ -1,4 +1,4 @@
-package me.whiteship.refactoring._01_smell_mysterious_name._01_change_method_declaration.after;
+package me.whiteship.refactoring._01_smell_mysterious_name._01_change_method_declaration;
 
 import org.kohsuke.github.GHIssue;
 import org.kohsuke.github.GHIssueComment;
@@ -20,12 +20,7 @@ public class StudyDashboard {
 
     private Set<String> reviews = new HashSet<>();
 
-    /**
-     * 이 함수는 github Issue에서 리뷰를 읽어온다. (Load)
-     * @param issue
-     * @throws IOException
-     */
-    private void loadReviews(GHIssue issue) throws IOException {
+    private void studyReviews(GHIssue issue) throws IOException {
         List<GHIssueComment> comments = issue.getComments();
         for (GHIssueComment comment : comments) {
             usernames.add(comment.getUserName());
@@ -47,7 +42,7 @@ public class StudyDashboard {
         GHIssue issue = repository.getIssue(30);
 
         StudyDashboard studyDashboard = new StudyDashboard();
-        studyDashboard.loadReviews(issue);
+        studyDashboard.studyReviews(issue);
         studyDashboard.getUsernames().forEach(System.out::println);
         studyDashboard.getReviews().forEach(System.out::println);
     }

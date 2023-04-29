@@ -1,4 +1,4 @@
-package me.whiteship.refactoring._01_smell_mysterious_name._02_rename_variable.after;
+package me.whiteship.refactoring._01_smell_mysterious_name._03_rename_field;
 
 import org.kohsuke.github.GHIssue;
 import org.kohsuke.github.GHIssueComment;
@@ -12,6 +12,8 @@ import java.util.Set;
 
 public class StudyDashboard {
 
+    // usernames보다는 리뷰를 단 사람의 이름이 더 적절할 수 있다.
+    // 따라서 usernames가 아닌 reviewer가 더 좋을 수 있음.
     private Set<String> usernames = new HashSet<>();
 
     private Set<String> reviews = new HashSet<>();
@@ -25,8 +27,6 @@ public class StudyDashboard {
         GHRepository repository = gitHub.getRepository("whiteship/live-study");
         GHIssue issue = repository.getIssue(30);
 
-        // Issue의 comment가 review가 맞긴 하다.
-        // 그런데 review를 읽어오는 함수 안에 review 변수가 없다는 것은 어색하다.
         List<GHIssueComment> reviews = issue.getComments();
         for (GHIssueComment review : reviews) {
             usernames.add(review.getUserName());

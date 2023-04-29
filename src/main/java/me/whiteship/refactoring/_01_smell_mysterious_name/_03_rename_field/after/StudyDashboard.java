@@ -1,4 +1,4 @@
-package me.whiteship.refactoring._01_smell_mysterious_name._03_rename_field;
+package me.whiteship.refactoring._01_smell_mysterious_name._03_rename_field.after;
 
 import org.kohsuke.github.GHIssue;
 import org.kohsuke.github.GHIssueComment;
@@ -12,9 +12,10 @@ import java.util.Set;
 
 public class StudyDashboard {
 
-    private Set<String> usernames = new HashSet<>();
-
-    private Set<String> reviews = new HashSet<>();
+    // usernames보다는 리뷰를 단 사람의 이름이 더 적절할 수 있다.
+    // 따라서 usernames가 아닌 reviewer가 더 좋을 수 있음.
+    // 또한 record로 이 부분을 처리하는 것이 더 좋을 수 있음.
+    private Set<StudyReview> studyReviews = new HashSet<>();
 
     /**
      * 스터디 리뷰 이슈에 작성되어 있는 리뷰어 목록과 리뷰를 읽어옵니다.
@@ -27,23 +28,13 @@ public class StudyDashboard {
 
         List<GHIssueComment> reviews = issue.getComments();
         for (GHIssueComment review : reviews) {
-            usernames.add(review.getUserName());
-            this.reviews.add(review.getBody());
+            studyReviews.add(new StudyReview(review.getUserName(), review.getBody()));
         }
-    }
-
-    public Set<String> getUsernames() {
-        return usernames;
-    }
-
-    public Set<String> getReviews() {
-        return reviews;
     }
 
     public static void main(String[] args) throws IOException {
         StudyDashboard studyDashboard = new StudyDashboard();
         studyDashboard.loadReviews();
-        studyDashboard.getUsernames().forEach(System.out::println);
-        studyDashboard.getReviews().forEach(System.out::println);
+        studyDashboard.studyReviews.forEach(System.out::println);
     }
 }
