@@ -11,6 +11,7 @@ public record Participant(String username, Map<Integer, Boolean> homework) {
         this.homework.put(index, true);
     }
 
+    // 도메인 객체쪽으로 캡슐화 한다.
     public double getRate(int totalNumberOfEvents) {
         long count = this.homework.values().stream()
                 .filter(v -> v == true)
