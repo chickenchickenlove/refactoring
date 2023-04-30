@@ -37,6 +37,7 @@ public class StudyPrinter {
         }
     }
 
+    // 매개변수 2개 → 1개 감소
     private String getMarkdownForParticipant(Participant participant) {
         return String.format("| %s %s | %.2f%% |\n",
                 participant.username(),
@@ -70,6 +71,7 @@ public class StudyPrinter {
      * | 참여자 (420) | 1주차 | 2주차 | 3주차 | 참석율 |
      * | --- | --- | --- | --- | --- |
      */
+    // 매개변수 1개 → 0개 감소
     private String header() {
         StringBuilder header = new StringBuilder(String.format("| 참여자 (%d) |", this.participants.size()));
 
