@@ -1,6 +1,4 @@
-package me.whiteship.refactoring._06_mutable_data._19_separate_query_from_modifier.after;
-
-import me.whiteship.refactoring._06_mutable_data._19_separate_query_from_modifier.Invoice;
+package me.whiteship.refactoring._06_mutable_data._19_separate_query_from_modifier;
 
 import java.util.List;
 
