@@ -1,8 +1,9 @@
-package me.whiteship.refactoring._06_mutable_data._20_remove_setting_method.after;
+package me.whiteship.refactoring._06_mutable_data._20_remove_setting_method;
 
 public class Person {
 
     private String name;
+
     private int id;
 
     public String getName() {
@@ -16,5 +17,9 @@ public class Person {
     public int getId() {
         return id;
     }
-    // Setter 제거됨.
+
+    // Setter가 열려있음. (요구사항과 관련없음) → 제거 필요함.
+    public void setId(int id) {
+        this.id = id;
+    }
 }
