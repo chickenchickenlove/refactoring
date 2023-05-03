@@ -1,19 +1,16 @@
-package me.whiteship.refactoring._09_feature_envy.after;
+package me.whiteship.refactoring._09_feature_envy;
 
-public class ElectricityUsage {
+public class GasUsage {
 
     private double amount;
 
     private double pricePerUnit;
 
-    public ElectricityUsage(double amount, double pricePerUnit) {
+    public GasUsage(double amount, double pricePerUnit) {
         this.amount = amount;
         this.pricePerUnit = pricePerUnit;
     }
 
-    public double getElecticityBill() {
-        return this.getAmount() * this.getPricePerUnit();
-    }
     public double getAmount() {
         return amount;
     }
