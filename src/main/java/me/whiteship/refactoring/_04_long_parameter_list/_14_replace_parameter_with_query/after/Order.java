@@ -1,4 +1,4 @@
-package me.whiteship.refactoring._04_long_parameter_list._14_replace_parameter_with_query;
+package me.whiteship.refactoring._04_long_parameter_list._14_replace_parameter_with_query.after;
 
 public class Order {
 
@@ -13,13 +13,15 @@ public class Order {
 
     public double finalPrice() {
         double basePrice = this.quantity * this.itemPrice;
-        // 이 수식은 이해하기 어려움. 의미를 가진 메서드로 빼야할 듯
-        int discountLevel = this.quantity > 100 ? 2 : 1;
-        return this.discountedPrice(basePrice, discountLevel);
+        return this.discountedPrice(basePrice);
+    }
+
+    private int getDiscountLevel() {
+        return this.quantity > 100 ? 2 : 1;
     }
 
     // basePrice, discountLevel이 있음.
-    private double discountedPrice(double basePrice, int discountLevel) {
-        return discountLevel == 2 ? basePrice * 0.90 : basePrice * 0.95;
+    private double discountedPrice(double basePrice) {
+        return getDiscountLevel() == 2 ? basePrice * 0.90 : basePrice * 0.95;
     }
 }
