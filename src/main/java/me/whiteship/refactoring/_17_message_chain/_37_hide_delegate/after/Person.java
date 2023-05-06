@@ -1,4 +1,4 @@
-package me.whiteship.refactoring._17_message_chain._37_hide_delegate;
+package me.whiteship.refactoring._17_message_chain._37_hide_delegate.after;
 
 public class Person {
 
@@ -14,12 +14,13 @@ public class Person {
         return name;
     }
 
-    // 삭제 필요. + getManager()를 추가해서 위임 숨기기
-    public Department getDepartment() {
-        return department;
-    }
 
     public void setDepartment(Department department) {
         this.department = department;
     }
+
+    public Person getManager() {
+        return this.department.getManager();
+    }
+
 }
