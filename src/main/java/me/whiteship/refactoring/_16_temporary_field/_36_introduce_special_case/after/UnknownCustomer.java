@@ -1,40 +1,21 @@
 package me.whiteship.refactoring._16_temporary_field._36_introduce_special_case.after;
 
-public class Customer {
+public class UnknownCustomer extends Customer{
 
-    private String name;
+    public UnknownCustomer() {
+        // 초기에는 billingPlan, paymentHistory를 모두 null로 가정한다.
+        // default 생성자로 만든다.
+        // super("unknown", null, null);
 
-    private BillingPlan billingPlan;
+        // CustomerService의 billingPlan을 전달해줌.
+        // super("occupant", new BasicBillingPlan(), null);
 
-    private PaymentHistory paymentHistory;
-
-    public Customer(String name, BillingPlan billingPlan, PaymentHistory paymentHistory) {
-        this.name = name;
-        this.billingPlan = billingPlan;
-        this.paymentHistory = paymentHistory;
+        // CustomerService의 weeksDelinquent()를 넘겨준다.
+        super("occupant", new BasicBillingPlan(), new NullPaymentHistory());
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public BillingPlan getBillingPlan() {
-        return billingPlan;
-    }
-
-    public void setBillingPlan(BillingPlan billingPlan) {
-        this.billingPlan = billingPlan;
-    }
-
-    public PaymentHistory getPaymentHistory() {
-        return paymentHistory;
-    }
-
-    public void setPaymentHistory(PaymentHistory paymentHistory) {
-        this.paymentHistory = paymentHistory;
+    @Override
+    public boolean isUnknown() {
+        return true;
     }
 }

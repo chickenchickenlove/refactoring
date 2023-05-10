@@ -1,4 +1,4 @@
-package me.whiteship.refactoring._16_temporary_field._36_introduce_special_case.after;
+package me.whiteship.refactoring._16_temporary_field._36_introduce_special_case;
 
 public class Customer {
 
@@ -36,9 +36,5 @@ public class Customer {
 
     public void setPaymentHistory(PaymentHistory paymentHistory) {
         this.paymentHistory = paymentHistory;
-    }
-
-    public boolean isUnknown() {
-        return false;
     }
 }
