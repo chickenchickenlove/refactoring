@@ -1,11 +1,10 @@
-package me.whiteship.refactoring._18_middle_man._40_replace_subclass_with_delegate;
+package me.whiteship.refactoring._18_middle_man._40_replace_subclass_with_delegate.after2;
 
 import java.util.List;
 
 public class Show {
 
     private List<String> properties;
-
     private double price;
 
     public Show(List<String> properties, double price) {

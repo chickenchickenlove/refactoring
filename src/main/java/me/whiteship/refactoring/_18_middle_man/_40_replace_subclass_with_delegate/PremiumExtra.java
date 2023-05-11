@@ -1,10 +1,11 @@
-package me.whiteship.refactoring._18_middle_man._40_replace_subclass_with_delegate.after2;
+package me.whiteship.refactoring._18_middle_man._40_replace_subclass_with_delegate;
 
 import java.util.List;
 
 public class PremiumExtra {
 
     private List<String> properties;
+
     private double premiumFee;
 
     public PremiumExtra(List<String> properties, double premiumFee) {

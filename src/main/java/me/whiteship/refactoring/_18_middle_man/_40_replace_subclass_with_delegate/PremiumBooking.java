@@ -1,4 +1,4 @@
-package me.whiteship.refactoring._18_middle_man._40_replace_subclass_with_delegate.after2;
+package me.whiteship.refactoring._18_middle_man._40_replace_subclass_with_delegate;
 
 import java.time.LocalDateTime;
 
@@ -12,9 +12,16 @@ public class PremiumBooking extends Booking {
     }
 
     @Override
+    public boolean hasTalkback() {
+        return this.show.hasOwnProperty("talkback");
+    }
+
+    @Override
     public double basePrice() {
         return Math.round(super.basePrice() + this.extra.getPremiumFee());
     }
 
-
+    public boolean hasDinner() {
+        return this.extra.hasOwnProperty("dinner") && !this.isPeakDay();
+    }
 }
